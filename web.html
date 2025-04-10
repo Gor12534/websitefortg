@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login / Signup</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f0f2f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      width: 350px;
+      position: relative;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    .form {
+      width: 100%;
+      padding: 30px;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .form h2 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .form input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .form button {
+      width: 100%;
+      padding: 10px;
+      background: #007bff;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .form button:hover {
+      background: #0056b3;
+    }
+
+    .form .toggle {
+      text-align: center;
+      margin-top: 10px;
+      cursor: pointer;
+      color: #007bff;
+      text-decoration: underline;
+    }
+
+    .forms-wrapper {
+      display: flex;
+      width: 200%;
+      transition: transform 0.5s ease;
+    }
+
+    #toggle:checked ~ .container .forms-wrapper {
+      transform: translateX(-50%);
+    }
+
+    .login-form, .signup-form {
+      width: 50%;
+      padding: 30px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <input type="checkbox" id="toggle">
+
+  <div class="container">
+    <div class="forms-wrapper">
+      <!-- Login Form -->
+      <div class="form login-form">
+        <h2>Login</h2>
+        <input type="text" placeholder="Username" required>
+        <input type="password" placeholder="Password" required>
+        <button>Login</button>
+        <label for="toggle" class="toggle">Don't have an account? Sign Up</label>
+      </div>
+
+      <!-- Signup Form -->
+      <div class="form signup-form">
+        <h2>Sign Up</h2>
+        <input type="text" placeholder="Username" required>
+        <input type="password" placeholder="Password" required>
+        <button>Sign Up</button>
+        <label for="toggle" class="toggle">Already have an account? Login</label>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
