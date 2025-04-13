@@ -86,7 +86,6 @@
       width: 50%;
       padding: 30px;
     }
-
   </style>
 </head>
 <body>
@@ -100,7 +99,7 @@
         <h2>Login</h2>
         <input type="text" placeholder="Username" required>
         <input type="password" placeholder="Password" required>
-        <button>Login</button>
+        <button onclick="sendData('login')">Login</button>
         <label for="toggle" class="toggle">Don't have an account? Sign Up</label>
       </div>
 
@@ -109,11 +108,38 @@
         <h2>Sign Up</h2>
         <input type="text" placeholder="Username" required>
         <input type="password" placeholder="Password" required>
-        <button>Sign Up</button>
+        <button onclick="sendData('signup')">Sign Up</button>
         <label for="toggle" class="toggle">Already have an account? Login</label>
       </div>
     </div>
   </div>
+
+  <script>
+    function sendData(actionType) {
+      const form = actionType === 'login'
+        ? document.querySelector('.login-form')
+        : document.querySelector('.signup-form');
+
+      const username = form.querySelector('input[type="text"]').value;
+      const password = form.querySelector('input[type="password"]').value;
+
+      fetch("https://your-replit-username.repl.co/senddata", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ username, password })
+      })
+      .then(res => res.json())
+      .then(data => {
+        alert("Data sent!");
+      })
+      .catch(err => {
+        console.error("Error:", err);
+        alert("Failed to send data");
+      });
+    }
+  </script>
 
 </body>
 </html>
